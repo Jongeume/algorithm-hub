@@ -20,8 +20,6 @@ class Solution:
             else:
                 stack2.append(w) 
 
-        print(stack1)
-        print(stack2)
 
         return True if stack1 == stack2 else False
 
