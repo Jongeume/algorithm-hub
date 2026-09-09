@@ -6,14 +6,14 @@ class Solution:
         for i in nums2: 
             if not stack:
                 stack.append(i)
-            else:
-                if stack[-1] < i:
-                    while stack:
-                        if stack[-1] < i: 
-                            result[stack.pop()] = i
-                        else :
-                            break
-                stack.append(i)
+                
+            if stack[-1] < i:
+                while stack:
+                    if stack[-1] < i: 
+                        result[stack.pop()] = i
+                    else :
+                        break
+            stack.append(i)
             
         # for j in range(len(nums1)):
         #     nums1[j] = result[nums1[j]]
