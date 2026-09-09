@@ -3,7 +3,7 @@ class Solution:
         stack = []
 
         for word in s:
-            if stack and word == stack[-1]: 
+            if stack and stack[-1] == word: 
                 stack.pop()
             else:
                 stack.append(word)
