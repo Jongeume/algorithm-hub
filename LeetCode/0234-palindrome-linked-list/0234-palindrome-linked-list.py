@@ -6,19 +6,38 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         cur = head
-        # value값으로 비교? 
-        stack = []
+        prev = None
+        next_tmp = None
+        fast = cur
+        slow = cur
+        is_even = False
 
-        # 2. 스택
-        while cur :
-            stack.append(cur.val)
-            cur = cur.next
+        while fast.next :
+            if fast.next.next is None : 
+                fast = fast.next
+                is_even = True
+            else :
+                fast = fast.next.next
+            slow = slow.next
         
-        cur = head
+        # back : slow -> fast
+        # front:  <- slow
 
-        while cur:
-            if stack.pop() != cur.val:
+        while cur is not slow:
+            next_tmp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next_tmp 
+
+        if not is_even:
+            cur = cur.next
+
+        while cur :
+            if cur.val != prev.val :
                 return False
             cur = cur.next
+            prev = prev.next    
         
         return True
+
+    
