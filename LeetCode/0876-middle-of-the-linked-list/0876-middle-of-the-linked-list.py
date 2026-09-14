@@ -9,13 +9,15 @@ class Solution:
         slow = cur
         fast = cur
 
-        while fast.next:
-            slow = cur.next
+        # None이 왜 안될까
+        
+        while fast.next :
+            slow = slow.next
             if fast.next.next is None:
                 fast = fast.next
-            else :
+            else:
                 fast = fast.next.next
-            cur = cur.next
-        
-        head = slow
-        return  head
+
+        cur = slow
+        return cur
+    
